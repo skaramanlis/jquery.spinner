@@ -25,11 +25,21 @@
         $('#old-val').text(oldVal);
         $('#new-val').text(newVal);
       });
+
       $('[data-trigger="spinner"]').spinner('changing', function(e, newVal, oldVal){
         var well = $(e.currentTarget).closest('.well');
         $('small', well).html("Old = " + oldVal + ", New = " + newVal);
       });
-    })
+
+      $('#step-spinner').spinner({
+        step: function(dir){
+          if((this.oldValue === 1 && dir === 'down') || (this.oldValue === -1 && dir === 'up')){
+              return 2;
+          }
+          return 1;
+        }
+      });
+    });
     </script>
   </head>
   <body>
@@ -127,6 +137,18 @@
           <p>
             Old = <span id="old-val"></span>, New = <span id="new-val"></span>
           </p>
+        </div>
+
+        <div class="well">
+          <h2>Pass step option as a function</h2>
+          <div>To skip 0 for this example</div>
+          <div class="input-append spinner" id="step-spinner">
+            <input type="text" value="1" data-min="-100" data-max="100" readonly="readonly">
+            <div class="add-on">
+              <a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
+              <a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+            </div>
+          </div>
         </div>
 
       </section>
