@@ -1,40 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Jquery-spinner by xixilive</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>jQuery-spinner</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-    <link href="stylesheets/bootstrap-spinner.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
-    <script src="javascripts/jquery.spinner.min.js"></script>
-    <script type="text/javascript">
-    $(function(){
-      $('#customize-spinner').spinner('changed',function(e, newVal, oldVal){
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="dist/bootstrap-spinner.css">
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="dist/jquery.spinner.min.js"></script>
+    <script>
+    $(function() {
+      $('#customize-spinner').spinner('changed', function(e, newVal, oldVal) {
         $('#old-val').text(oldVal);
         $('#new-val').text(newVal);
       });
 
-      $('[data-trigger="spinner"]').spinner('changing', function(e, newVal, oldVal){
+      $('[data-trigger="spinner"]').spinner('changing', function(e, newVal, oldVal) {
         var well = $(e.currentTarget).closest('.well');
-        $('small', well).html("Old = " + oldVal + ", New = " + newVal);
+        $('small', well).text("Old = " + oldVal + ", New = " + newVal);
       });
 
       $('#step-spinner').spinner({
-        step: function(dir){
-          if((this.oldValue === 1 && dir === 'down') || (this.oldValue === -1 && dir === 'up')){
-              return 2;
+        step: function(dir) {
+          if ((this.oldValue === 1 && dir === 'down') || (this.oldValue === -1 && dir === 'up')) {
+            return 2;
           }
           return 1;
         }
@@ -45,92 +42,91 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1 class="header">Jquery-spinner</h1>
+        <h1 class="header">jQuery-spinner</h1>
         <p class="header">A Number-Spinner based-on jQuery, Support Keyboard operations and continuous changing.</p>
 
-        <ul style="margin-left:0;">
-          <li class="download"><a class="buttons" href="https://github.com/vsn4ik/jquery-spinner/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/vsn4ik/jquery-spinner/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/vsn4ik/jquery-spinner">View On GitHub</a></li>
-        </ul>
+        <a class="btn btn-primary" href="https://github.com/vsn4ik/jquery-spinner/zipball/master">Download ZIP</a>
+        <br>
+        <br>
+        <a class="btn btn-primary" href="https://github.com/vsn4ik/jquery-spinner/tarball/master">Download TAR</a>
+        <br>
+        <br>
+        <a class="btn btn-default" href="https://github.com/vsn4ik/jquery-spinner">View On GitHub</a>
 
         <p class="header">This project is maintained by <a class="header name" href="https://github.com/vsn4ik">vsn4ik</a></p>
       </header>
-      <section>
-        <h1>
-          Examples of Jquery-spinner
-        </h1>
-        <blockquote class="muted">
-          <p>Arrow-up for increment</p>
-          <p>Arrow-down for decrement</p>
-          <p>Press Arrows or Left-mouse cause continuous changing</p>
-        </blockquote>
 
-        <h2>Built-in rules</h2>
+      <section>
+        <h1>Examples of jQuery-spinner</h1>
+        <ul class="muted">
+          <li>Arrow-up for increment</li>
+          <li>Arrow-down for decrement</li>
+          <li>Press Arrows or Left-mouse cause continuous changing</li>
+        </ul>
+
         <div class="well">
           <h2>Quantity:<small class="pull-right"></small></h2>
-          <div class="input-append spinner" data-trigger="spinner">
-            <input type="text" value="1" data-rule="quantity">
-            <div class="add-on">
-              <a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
-              <a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+          <div class="input-group spinner" data-trigger="spinner">
+            <input type="text" class="form-control text-center" value="1" data-rule="quantity">
+            <div class="input-group-addon">
+              <a href="javascript:;" class="spin-up" data-spin="up"><i class="fa fa-caret-up"></i></a>
+              <a href="javascript:;" class="spin-down" data-spin="down"><i class="fa fa-caret-down"></i></a>
             </div>
           </div>
-
         </div>
 
         <div class="well">
           <h2>Currency:<small class="pull-right"></small></h2>
-          <div class="input-append spinner" data-trigger="spinner">
-            <input type="text" value="1" data-rule="currency">
-            <div class="add-on">
-              <a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
-              <a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+          <div class="input-group spinner" data-trigger="spinner">
+            <input type="text" class="form-control text-center" value="1" data-rule="currency">
+            <div class="input-group-addon">
+              <a href="javascript:;" class="spin-up" data-spin="up"><i class="fa fa-caret-up"></i></a>
+              <a href="javascript:;" class="spin-down" data-spin="down"><i class="fa fa-caret-down"></i></a>
             </div>
           </div>
         </div>
 
         <div class="well">
           <h2>Percent:<small class="pull-right"></small></h2>
-          <div class="input-append spinner" data-trigger="spinner">
-            <input type="text" value="1" data-rule="percent">
-            <div class="add-on">
-              <a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
-              <a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+          <div class="input-group spinner" data-trigger="spinner">
+            <input type="text" class="form-control text-center" value="1" data-rule="percent">
+            <div class="input-group-addon">
+              <a href="javascript:;" class="spin-up" data-spin="up"><i class="fa fa-caret-up"></i></a>
+              <a href="javascript:;" class="spin-down" data-spin="down"><i class="fa fa-caret-down"></i></a>
             </div>
           </div>
         </div>
 
         <div class="well">
           <h2>Month:<small class="pull-right"></small></h2>
-          <div class="input-append spinner" data-trigger="spinner">
-            <input type="text" value="1" data-rule="month">
-            <div class="add-on">
-              <a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
-              <a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+          <div class="input-group spinner" data-trigger="spinner">
+            <input type="text" class="form-control text-center" value="1" data-rule="month">
+            <div class="input-group-addon">
+              <a href="javascript:;" class="spin-up" data-spin="up"><i class="fa fa-caret-up"></i></a>
+              <a href="javascript:;" class="spin-down" data-spin="down"><i class="fa fa-caret-down"></i></a>
             </div>
           </div>
         </div>
 
         <div class="well">
           <h2>Hour:<small class="pull-right"></small></h2>
-          <div class="input-append spinner" data-trigger="spinner">
-            <input type="text" value="1" data-rule="hour">
-            <div class="add-on">
-              <a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
-              <a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+          <div class="input-group spinner" data-trigger="spinner">
+            <input type="text" class="form-control text-center" value="1" data-rule="hour">
+            <div class="input-group-addon">
+              <a href="javascript:;" class="spin-up" data-spin="up"><i class="fa fa-caret-up"></i></a>
+              <a href="javascript:;" class="spin-down" data-spin="down"><i class="fa fa-caret-down"></i></a>
             </div>
           </div>
         </div>
-        
+
         <h2>Customize</h2>
         <div class="well">
           <h2>even number less than 200<small class="pull-right"></small></h2>
-          <div class="input-append spinner" data-trigger="spinner" id="customize-spinner">
-            <input type="text" value="0" data-max="200" data-min="0" data-step="2">
-            <div class="add-on">
-              <a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
-              <a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+          <div class="input-group spinner" data-trigger="spinner" id="customize-spinner">
+            <input type="text" class="form-control text-center" value="0" data-max="200" data-min="0" data-step="2">
+            <div class="input-group-addon">
+              <a href="javascript:;" class="spin-up" data-spin="up"><i class="fa fa-caret-up"></i></a>
+              <a href="javascript:;" class="spin-down" data-spin="down"><i class="fa fa-caret-down"></i></a>
             </div>
           </div>
           <p>Event handler: changed</p>
@@ -142,31 +138,15 @@
         <div class="well">
           <h2>Pass step option as a function</h2>
           <div>To skip 0 for this example</div>
-          <div class="input-append spinner" id="step-spinner">
-            <input type="text" value="1" data-min="-100" data-max="100" readonly="readonly">
-            <div class="add-on">
-              <a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a>
-              <a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a>
+          <div class="input-group spinner" data-trigger="spinner">
+            <input type="text" class="form-control text-center" value="1" data-min="-100" data-max="100" readonly>
+            <div class="input-group-addon">
+              <a href="javascript:;" class="spin-up" data-spin="up"><i class="fa fa-caret-up"></i></a>
+              <a href="javascript:;" class="spin-down" data-spin="down"><i class="fa fa-caret-down"></i></a>
             </div>
           </div>
         </div>
-
       </section>
-      <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
-      </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		      <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-35506246-2");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
   </body>
 </html>
