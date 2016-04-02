@@ -34,7 +34,6 @@ body {
   margin: 0;
   line-height: 1.8em;
   -webkit-font-smoothing: antialiased;
-
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -172,7 +171,7 @@ pre {
 /* Tables */
 
 table {
-  width:100%;
+  width: 100%;
 }
 
 table {
@@ -188,7 +187,7 @@ th {
   padding: 10px;
   background: #232323;
   color: #FDFEFB;
- }
+}
 
 td {
   padding: 10px;
@@ -266,7 +265,6 @@ header li {
 
   -webkit-box-shadow: inset 0px 1px 1px 0 rgba(233,2,38, 1);
   box-shadow: inset 0px 1px 1px 0 rgba(233,2,38, 1);
-
 }
 
 header li:hover {
@@ -300,7 +298,6 @@ footer {
 }
 
 @media print, screen and (max-width: 960px) {
-
   div.wrapper {
     width:auto;
     margin:0;
@@ -363,7 +360,6 @@ footer {
 }
 
 @media print, screen and (max-width: 480px) {
-
   header ul li.download {
     display:none;
   }
@@ -372,10 +368,9 @@ footer {
     margin: 0 0 0 20px;
   }
 
-  footer a{
-    display:block;
+  footer a {
+    display: block;
   }
-
 }
 
 @media print {
