@@ -182,6 +182,9 @@
           if (e.which === 1) {
             this.spinTimeout = setTimeout($.proxy(this, 'beginSpin', dir), 300);
           }
+          $(e.currentTarget).mouseleave($.proxy(function(){
+            clearInterval(this.spinInterval);
+          }, this));
           break;
       }
     },
